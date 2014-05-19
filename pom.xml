@@ -5,10 +5,19 @@
     <artifactId>altkom-hibernate</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <name>hibernate-forms</name>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+        
+        <org.springframework.version>4.0.4.RELEASE</org.springframework.version>
+        <org.springframework.security.version>3.2.3.RELEASE</org.springframework.security.version>
+        <javassist.version>3.18.1-GA</javassist.version>
+
+        <!-- persistence -->
+        <hibernate.version>4.3.5.Final</hibernate.version>
     </properties>
     
     
@@ -21,9 +30,15 @@
         </dependency>
     
         <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+    
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>4.3.5.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
         
         <!-- Hibernate uses slf4j for logging, for our purposes here use the simple backend -->
@@ -37,7 +52,27 @@
             <artifactId>derbyclient</artifactId>
             <version>10.8.3.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-    <name>hibernate-forms</name>
+    
 </project>

@@ -5,9 +5,9 @@ package pl.com.softproject.altkom.hibernate;
 
 import java.util.ArrayList;
 import org.hibernate.Session;
-import pl.com.softproject.altkom.hibernate.dao.MessageDAO;
-import pl.com.softproject.altkom.hibernate.dao.PersonDAO;
-import pl.com.softproject.altkom.hibernate.dao.TeamDAO;
+import pl.com.softproject.altkom.hibernate.dao.MessageDAOImpl;
+import pl.com.softproject.altkom.hibernate.dao.PersonDAOImpl;
+import pl.com.softproject.altkom.hibernate.dao.TeamDAOImpl;
 import pl.com.softproject.altkom.hibernate.model.Message;
 import pl.com.softproject.altkom.hibernate.model.Person;
 import pl.com.softproject.altkom.hibernate.model.Team;
@@ -27,9 +27,9 @@ public class Main2 {
 
             session.beginTransaction();
 
-            PersonDAO personDAO = new PersonDAO();
-            TeamDAO teamDAO = new TeamDAO();
-            MessageDAO messageDAO = new MessageDAO();
+            PersonDAOImpl personDAO = new PersonDAOImpl();
+            TeamDAOImpl teamDAO = new TeamDAOImpl();
+            MessageDAOImpl messageDAO = new MessageDAOImpl();
             
             Person person = personDAO.load(14L);
             

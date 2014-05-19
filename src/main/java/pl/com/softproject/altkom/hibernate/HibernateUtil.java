@@ -18,6 +18,7 @@ public class HibernateUtil {
     private final static SessionFactory sessionFactory = buildSessionFactory();
 
     private static SessionFactory buildSessionFactory() {
+        
         try {
             Configuration configuration = new Configuration();
             configuration.configure("hibernate.cfg.xml");

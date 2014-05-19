@@ -14,8 +14,11 @@
     <!-- Echo all executed SQL to stdout -->
     <property name="show_sql">true</property>
     <!-- update the database schema on startup -->
+    <property name="hibernate.format_sql">true</property>
     <property name="hbm2ddl.auto">update</property>
     <mapping package="pl.com.softproject.altkom.hibernate.model"/>
     <mapping class="pl.com.softproject.altkom.hibernate.model.Person"/>
+    <mapping class="pl.com.softproject.altkom.hibernate.model.Team"/>
+    
   </session-factory>
 </hibernate-configuration>

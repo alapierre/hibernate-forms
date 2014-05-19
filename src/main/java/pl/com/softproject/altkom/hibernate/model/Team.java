@@ -1,35 +1,39 @@
 /*
- * Copyright 2014-05-18 the original author or authors.
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 
 package pl.com.softproject.altkom.hibernate.model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
 @Entity
-public class Person implements Serializable {
+public class Team implements Serializable {
+
+    public Team() {
+    }
+
+    public Team(Long id) {
+        this.id = id;
+    }
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    
+    @Column(length = 128)
     private String name;
-    
-    
-    @ManyToOne
-    //@JoinColumn(name = "team_id")
-    private Team team;
-    
+
     public Long getId() {
         return id;
     }
@@ -48,17 +52,9 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", name=" + name + '}';
+        return "Team{" + "id=" + id + ", name=" + name + '}';
     }
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
- 
+    
     
     
     

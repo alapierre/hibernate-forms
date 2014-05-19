@@ -19,6 +19,7 @@
     <mapping package="pl.com.softproject.altkom.hibernate.model"/>
     <mapping class="pl.com.softproject.altkom.hibernate.model.Person"/>
     <mapping class="pl.com.softproject.altkom.hibernate.model.Team"/>
+    <mapping class="pl.com.softproject.altkom.hibernate.model.Message"/>
     
   </session-factory>
 </hibernate-configuration>

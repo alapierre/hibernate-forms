@@ -3,6 +3,7 @@
  */
 package pl.com.softproject.altkom.hibernate;
 
+import java.util.ArrayList;
 import org.hibernate.Session;
 import pl.com.softproject.altkom.hibernate.dao.MessageDAO;
 import pl.com.softproject.altkom.hibernate.dao.PersonDAO;
@@ -15,7 +16,7 @@ import pl.com.softproject.altkom.hibernate.model.Team;
  *
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
-public class Main {
+public class Main2 {
 
     public static void main(String[] args) {
         System.out.println("start");
@@ -30,20 +31,15 @@ public class Main {
             TeamDAO teamDAO = new TeamDAO();
             MessageDAO messageDAO = new MessageDAO();
             
-            Team team = teamDAO.load(1L);
+            Person person = personDAO.load(14L);
             
-            Person p = new Person();
-            p.setTeam(team);
-            p.setName("imię");
+            System.out.println(person.getMessages());
             
-            Message message = new Message();
-            message.setContent("treść wiadomości");
-            message.setSubject("temat");
+            person.getMessages().clear();
+           
             
-            p.addMessage(message);
+            personDAO.save(person);
             
-            //personDAO.save(p);
-            messageDAO.save(message);
             
             System.out.println("end");
 

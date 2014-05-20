@@ -38,6 +38,13 @@ public class FormDataDAOImplTest extends AbstractTransactionalJUnit4SpringContex
     @Autowired
     PersonDAO personDAO;
 
+    @Test
+    public void findByPersonId() {
+        Iterable<FormData> res = formDataDAO.findByPersonId(1L);
+        
+        System.out.println(res);
+    }
+    
     /**
      * Test of load method, of class FormDataDAOImpl.
      */

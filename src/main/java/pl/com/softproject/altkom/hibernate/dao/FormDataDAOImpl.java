@@ -31,4 +31,17 @@ public class FormDataDAOImpl extends GenericDAOHibernateImpl<FormData, Long> imp
         sessionFactory.getCurrentSession().save(formData);
     }
     
+    @Override
+    public Iterable<FormData> findByPersonId(long personId) {
+        
+        return getSession().getNamedQuery("formData.findByPersonId")
+                .setLong("personId", personId)
+                .list();
+        
+//        return getSession().createQuery("select f from FormData as f "
+//                + " where f.person.id = :personId")
+//                .setLong("personId", personId)
+//                .list();
+    }
+    
 }

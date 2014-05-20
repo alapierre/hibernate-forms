@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+import pl.com.softproject.altkom.hibernate.model.Address;
 import pl.com.softproject.altkom.hibernate.model.Message;
 import pl.com.softproject.altkom.hibernate.model.Person;
 
@@ -23,6 +24,23 @@ public class PersonDAOImplTest extends AbstractTransactionalJUnit4SpringContextT
     @Autowired
     PersonDAO personDAO;
 
+    @Test
+    public void testSaveWithAddress() {
+        
+        Person p = new Person();
+        p.setName("Adrian");
+        
+        Address address = new Address();
+        address.setCiti("Łomianki");
+        address.setContry("Poland");
+        address.setStreet("Warszawska 109");
+        address.setPostCode("05-092");
+        p.setAddress(address);
+        
+        personDAO.save(p);
+        
+    }
+    
     /**
      * Test of load method, of class PersonDAOImpl.
      */

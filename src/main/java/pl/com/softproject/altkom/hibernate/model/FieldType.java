@@ -9,5 +9,5 @@ package pl.com.softproject.altkom.hibernate.model;
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
 public enum FieldType {
-    TextField, SuggestBox, Wauthors, Magazines, ComboBox, Datetime, Email, Number, CheckBox;
+    TextField, SuggestBox, Magazines, ComboBox, Datetime, Email, Number, CheckBox;
 }

@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,7 @@ import javax.persistence.OneToMany;
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
 @Entity
+@SuppressWarnings("PersistenceUnitPresent")
 public class Person implements Serializable {
     
     @Id
@@ -31,6 +33,9 @@ public class Person implements Serializable {
     
     @OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL)
     private List<Message> messages= new ArrayList<>(0);
+    
+    @Embedded
+    private Address address;
     
     public void addMessage(Message message) {
         messages.add(message);
@@ -65,6 +70,16 @@ public class Person implements Serializable {
         this.messages = messages;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "Person{" + "id=" + id + ", name=" + name + '}';

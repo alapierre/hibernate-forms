@@ -16,7 +16,7 @@ import pl.com.softproject.altkom.hibernate.model.FormData;
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
 @Repository
-public class FormDataDAOImpl implements FormDataDAO {
+public class FormDataDAOImpl extends GenericDAOHibernateImpl<FormData, Long> implements FormDataDAO {
     
     @Autowired
     private SessionFactory sessionFactory;

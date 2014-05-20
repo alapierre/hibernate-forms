@@ -16,18 +16,5 @@ import pl.com.softproject.altkom.hibernate.model.Team;
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
 @Repository
-public class TeamDAOImpl implements TeamDAO {
-    
-    @Autowired
-    private SessionFactory sessionFactory;
-    
-    @Override
-    public Team load(long id) {
-        return (Team) sessionFactory.getCurrentSession().load(Team.class, id);
-    }
-    
-    @Override
-    public void save(Team team) {
-        sessionFactory.getCurrentSession().save(team);
-    }
+public class TeamDAOImpl extends GenericDAOHibernateImpl<Team, Long> implements TeamDAO {
 }

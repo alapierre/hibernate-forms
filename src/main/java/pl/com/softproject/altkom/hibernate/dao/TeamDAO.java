@@ -12,7 +12,7 @@ import pl.com.softproject.altkom.hibernate.model.Team;
  */
 public interface TeamDAO {
 
-    Team load(long id);
+    Team load(Long id);
 
     void save(Team team);
     

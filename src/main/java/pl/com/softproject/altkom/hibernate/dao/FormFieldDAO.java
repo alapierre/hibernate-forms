@@ -14,7 +14,7 @@ import pl.com.softproject.altkom.hibernate.model.FormField;
  */
 public interface FormFieldDAO {
 
-    FormField load(long id);
+    FormField load(Long id);
 
     void save(FormField formField);
     

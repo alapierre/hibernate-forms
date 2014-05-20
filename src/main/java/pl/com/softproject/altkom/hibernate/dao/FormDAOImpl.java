@@ -6,8 +6,6 @@
 
 package pl.com.softproject.altkom.hibernate.dao;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pl.com.softproject.altkom.hibernate.model.Form;
 
@@ -16,19 +14,5 @@ import pl.com.softproject.altkom.hibernate.model.Form;
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
 @Repository
-public class FormDAOImpl implements FormDAO  {
-    
-    @Autowired
-    private SessionFactory sessionFactory;
-    
-    @Override
-    public Form load(long id) {
-        return (Form) sessionFactory.getCurrentSession().load(Form.class, id);
-    }
-    
-    @Override
-    public void save(Form form) {
-        sessionFactory.getCurrentSession().save(form);
-    }
-    
+public class FormDAOImpl extends GenericDAOHibernateImpl<Form, Long> implements FormDAO  {
 }

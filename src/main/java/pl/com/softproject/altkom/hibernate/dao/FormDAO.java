@@ -14,7 +14,7 @@ import pl.com.softproject.altkom.hibernate.model.Form;
  */
 public interface FormDAO {
 
-    Form load(long id);
+    Form load(Long id);
 
     void save(Form form);
     

@@ -4,15 +4,18 @@
  * and open the template in the editor.
  */
 
-package pl.com.softproject.altkom.hibernate.dao;
+package pl.com.softproject.altkom.hibernate.dao.hibernate;
 
 import org.springframework.stereotype.Repository;
-import pl.com.softproject.altkom.hibernate.model.Message;
+import pl.com.softproject.altkom.hibernate.model.FormFieldComboValue;
 
 /**
  *
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
 @Repository
-public class MessageDAOImpl extends GenericDAOHibernateImpl<Message, Long> implements MessageDAO {
+public class FormFieldComboValueDAOImpl extends GenericDAOHibernateImpl<FormFieldComboValue, Long>{
+
+    
+    
 }

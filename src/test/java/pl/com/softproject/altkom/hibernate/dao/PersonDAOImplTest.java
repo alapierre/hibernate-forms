@@ -18,7 +18,7 @@ import pl.com.softproject.altkom.hibernate.model.Person;
  *
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
-@ContextConfiguration("/applicationContext.xml")
+@ContextConfiguration("/hibernateApplicationContext.xml")
 @TransactionConfiguration(defaultRollback = false)
 public class PersonDAOImplTest extends AbstractTransactionalJUnit4SpringContextTests {
 

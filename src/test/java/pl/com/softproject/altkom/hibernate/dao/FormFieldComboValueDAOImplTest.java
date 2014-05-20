@@ -6,6 +6,7 @@
 
 package pl.com.softproject.altkom.hibernate.dao;
 
+import pl.com.softproject.altkom.hibernate.dao.hibernate.FormFieldComboValueDAOImpl;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.springframework.beans.factory.annotation.Autowired;

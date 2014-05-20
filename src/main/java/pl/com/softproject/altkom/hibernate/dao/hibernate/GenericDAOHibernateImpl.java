@@ -2,7 +2,7 @@
  * Copyright 2014-05-18 the original author or authors.
  */
 
-package pl.com.softproject.altkom.hibernate.dao;
+package pl.com.softproject.altkom.hibernate.dao.hibernate;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;

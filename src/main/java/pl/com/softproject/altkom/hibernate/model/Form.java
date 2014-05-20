@@ -43,12 +43,12 @@ public class Form extends BaseEntity {
 //    @OrderBy("lp")
 //    private Set<FormField> fields = new LinkedHashSet<>();
 
-    @OneToMany
+    @OneToMany(mappedBy="id.form")
     private Set<FormFormFieldAssociacion> fields = new LinkedHashSet<>();;
     
     public void addField(FormFormFieldAssociacion formField) {
         fields.add(formField);
-        formField.getId().setForm(this);
+        //formField.getFormField().getForms().add(formField);
     }
     
     public String getTitle() {

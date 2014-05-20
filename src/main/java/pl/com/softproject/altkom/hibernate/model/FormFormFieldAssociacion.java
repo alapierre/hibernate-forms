@@ -20,16 +20,16 @@ import pl.com.softproject.altkom.hibernate.model.composite.FormFormFieldAssociac
  */
 @Entity
 @Table(name = "form_formfields")
-@SuppressWarnings("PersistenceUnitPresent")
 @AssociationOverrides({
     @AssociationOverride(name = "id.formField",
             joinColumns = @JoinColumn(name = "formfield_id")),
     @AssociationOverride(name = "id.form",
             joinColumns = @JoinColumn(name = "form_id"))})
+@SuppressWarnings("PersistenceUnitPresent")
 public class FormFormFieldAssociacion implements Serializable {
     
     @EmbeddedId
-    private FormFormFieldAssociacionId id;
+    private FormFormFieldAssociacionId id = new FormFormFieldAssociacionId();
     
     private int lp;
     

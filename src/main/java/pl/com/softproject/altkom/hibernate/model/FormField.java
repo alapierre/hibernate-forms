@@ -35,16 +35,10 @@ public class FormField extends BaseEntity{
     @Size(max = 1024)
     private String question;
     
-    @Size(max = 2048)
-    private String description;
-    
-    @Min(0)
-    private int lp;
-    
     private boolean required;
 
-    @ManyToMany(mappedBy = "fields", cascade = CascadeType.ALL)
-    private Set<Form> forms = new HashSet<>();
+    @OneToMany(mappedBy = "id.formField")
+    private Set<FormFormFieldAssociacion> forms = new HashSet<>();
     
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "field_id")
@@ -66,22 +60,6 @@ public class FormField extends BaseEntity{
         this.question = question;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getLp() {
-        return lp;
-    }
-
-    public void setLp(int lp) {
-        this.lp = lp;
-    }
-
     public boolean isRequired() {
         return required;
     }
@@ -90,11 +68,11 @@ public class FormField extends BaseEntity{
         this.required = required;
     }
 
-    public Set<Form> getForms() {
+    public Set<FormFormFieldAssociacion> getForms() {
         return forms;
     }
 
-    public void setForms(Set<Form> forms) {
+    public void setForms(Set<FormFormFieldAssociacion> forms) {
         this.forms = forms;
     }
 

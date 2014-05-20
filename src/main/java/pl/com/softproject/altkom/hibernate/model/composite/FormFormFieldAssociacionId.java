@@ -6,6 +6,7 @@ package pl.com.softproject.altkom.hibernate.model.composite;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
 import pl.com.softproject.altkom.hibernate.model.Form;

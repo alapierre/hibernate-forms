@@ -18,6 +18,7 @@ import pl.com.softproject.altkom.hibernate.model.Form;
 import pl.com.softproject.altkom.hibernate.model.FormData;
 import pl.com.softproject.altkom.hibernate.model.FormField;
 import pl.com.softproject.altkom.hibernate.model.FormFieldValue;
+import pl.com.softproject.altkom.hibernate.model.FormFormFieldAssociacion;
 import pl.com.softproject.altkom.hibernate.model.Person;
 
 /**
@@ -50,7 +51,7 @@ public class FormDataDAOImplTest extends AbstractTransactionalJUnit4SpringContex
     @Test
     public void testSave() {
         
-        long formId = 4L;
+        long formId = 1L;
         
         Person p = new Person();
         Address adr = new Address();
@@ -72,11 +73,11 @@ public class FormDataDAOImplTest extends AbstractTransactionalJUnit4SpringContex
         formData.setCreationDate(new Date());
         formData.setPerson(p);
         
-        for(FormField field : form.getFields()) {
+        for(FormFormFieldAssociacion field : form.getFields()) {
             FormFieldValue value = new FormFieldValue();
-            value.setFieldValue(field.getQuestion() + " odpowiedź");
+            value.setFieldValue(field.getFormField().getQuestion() + " odpowiedź");
             value.setFormData(formData);
-            value.setFormField(field);
+            value.setFormField(field.getFormField());
             formData.getAnswers().add(value);
         }
         

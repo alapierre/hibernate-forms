@@ -11,6 +11,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,14 +38,17 @@ public class Form extends BaseEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
     
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "form_formfields")
-    @OrderBy("lp")
-    private Set<FormField> fields = new LinkedHashSet<>();
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "form_formfields")
+//    @OrderBy("lp")
+//    private Set<FormField> fields = new LinkedHashSet<>();
 
-    public void addField(FormField formField) {
+    @OneToMany(mappedBy="id.form")
+    private Set<FormFormFieldAssociacion> fields = new LinkedHashSet<>();;
+    
+    public void addField(FormFormFieldAssociacion formField) {
         fields.add(formField);
-        formField.getForms().add(this);
+        //formField.getFormField().getForms().add(formField);
     }
     
     public String getTitle() {
@@ -62,14 +67,12 @@ public class Form extends BaseEntity {
         this.createDate = createDate;
     }
 
-    public Set<FormField> getFields() {
+    public Set<FormFormFieldAssociacion> getFields() {
         return fields;
     }
 
-    public void setFields(Set<FormField> fields) {
+    public void setFields(Set<FormFormFieldAssociacion> fields) {
         this.fields = fields;
     }
-    
-    
     
 }

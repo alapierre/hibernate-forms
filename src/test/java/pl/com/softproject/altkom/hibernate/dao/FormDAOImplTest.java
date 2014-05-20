@@ -17,6 +17,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import pl.com.softproject.altkom.hibernate.model.FieldType;
 import pl.com.softproject.altkom.hibernate.model.Form;
 import pl.com.softproject.altkom.hibernate.model.FormField;
+import pl.com.softproject.altkom.hibernate.model.FormFormFieldAssociacion;
 
 /**
  *
@@ -31,6 +32,9 @@ public class FormDAOImplTest extends AbstractTransactionalJUnit4SpringContextTes
     
     @Autowired
     FormFieldDAO formFieldDAO;
+    
+    @Autowired
+    FormFormFieldAssociacionDAO formFormFieldAssociacionDAO;
 
     /**
      * Test of load method, of class FormDAOImpl.
@@ -38,14 +42,14 @@ public class FormDAOImplTest extends AbstractTransactionalJUnit4SpringContextTes
     @Test
     public void testLoad() {
         
-        Form form = formDAO.load(4L);
+        Form form = formDAO.load(1L);
         
         System.out.println(form.getTitle());
         
-        Set<FormField> list = form.getFields();
+        Set<FormFormFieldAssociacion> list = form.getFields();
         
-        for(FormField field : list) {
-            System.out.println(field.getQuestion());
+        for(FormFormFieldAssociacion field : list) {
+            System.out.println(field.getFormField().getQuestion());
         }
         
         
@@ -59,28 +63,47 @@ public class FormDAOImplTest extends AbstractTransactionalJUnit4SpringContextTes
         
         Form form = new Form();
         form.setCreateDate(new Date());
-        form.setTitle("Ankieta nr 1");
+        form.setTitle("Ankieta nr 3");
         
         FormField field1 = new FormField();
         field1.setQuestion("Imię i nazwisko");
-        field1.setDescription("proszę podać imię i nazwisko");
-        field1.setLp(1);
+        //field1.setDescription("proszę podać imię i nazwisko");
+        //field1.setLp(1);
         field1.setRequired(true);
         field1.setFieldType(FieldType.TextField);
-                
-        form.addField(field1);
+        
+        FormFormFieldAssociacion asoc = new FormFormFieldAssociacion();
+        asoc.setForm(form);
+        asoc.setFormField(field1);
+        asoc.setLp(1);
+        asoc.setDescription("proszę podać imię i nazwisko");
+        
+        form.addField(asoc);
+        field1.getForms().add(asoc);
+        
         
         FormField field2 = new FormField();
         field2.setQuestion("Wykształcenie");
-        field2.setDescription("proszę nazwę uczelni");
-        field2.setLp(2);
+        //field2.setDescription("proszę nazwę uczelni");
+        //field2.setLp(2);
         field2.setRequired(true);
         field2.setFieldType(FieldType.TextField);
-                
-        form.addField(field2);
         
+        FormFormFieldAssociacion asoc1 = new FormFormFieldAssociacion();
+        asoc1.setForm(form);
+        asoc1.setLp(2);
+        asoc1.setDescription("proszę podać nazwę uczelni");
+        asoc1.setFormField(field2);
+        form.addField(asoc1);
+        field2.getForms().add(asoc1);
+        
+        formFieldDAO.save(field1);
+        formFieldDAO.save(field2);
         formDAO.save(form);
-        //formFieldDAO.save(field1);
+        
+        formFormFieldAssociacionDAO.save(asoc);
+        formFormFieldAssociacionDAO.save(asoc1);
+        
         
     }
     

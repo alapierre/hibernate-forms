@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @param <T>
  * @param <PK>
  */
-public class GenericDAOHibernateImpl<T, PK extends Serializable> {
+public class GenericDAOHibernateImpl<T, PK extends Serializable> implements GenericDAOHibernate<T, PK> {
     
     @Autowired
     private SessionFactory sessionFactory;
@@ -35,26 +35,31 @@ public class GenericDAOHibernateImpl<T, PK extends Serializable> {
                             .getGenericSuperclass()).getActualTypeArguments()[1];;
     }
     
-    protected Session getSession() {
+    private Session getSession() {
         return sessionFactory.getCurrentSession();
     }
     
+    @Override
     public T findOne(PK id) {
         return load(id);
     }
     
+    @Override
     public T load(PK id) {
         return (T) getSession().load(type, id);
     }
     
+    @Override
     public void save(T entity) {
         getSession().saveOrUpdate(entity);
     }
     
+    @Override
     public Iterable<T> findAll() {
         return getSession().createCriteria(type).list();
     }
     
+    @Override
     public void delete(T entity) {
         getSession().delete(entity);
         

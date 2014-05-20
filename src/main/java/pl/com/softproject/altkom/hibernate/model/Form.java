@@ -7,9 +7,11 @@ package pl.com.softproject.altkom.hibernate.model;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,13 +22,23 @@ import javax.persistence.TemporalType;
 @Entity
 @SuppressWarnings("PersistenceUnitPresent")
 public class Form extends BaseEntity {
+
+    public Form() {
+    }
+
+    public Form(Long id) {
+        super(id);
+    }
+    
+    
     
     private String title;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
     
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "form_formfields")
+    @OrderBy("lp")
     private Set<FormField> fields = new LinkedHashSet<>();
 
     public void addField(FormField formField) {

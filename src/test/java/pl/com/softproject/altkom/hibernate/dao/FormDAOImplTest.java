@@ -7,6 +7,7 @@
 package pl.com.softproject.altkom.hibernate.dao;
 
 import java.util.Date;
+import java.util.Set;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,18 @@ public class FormDAOImplTest extends AbstractTransactionalJUnit4SpringContextTes
      */
     @Test
     public void testLoad() {
+        
+        Form form = formDAO.load(4L);
+        
+        System.out.println(form.getTitle());
+        
+        Set<FormField> list = form.getFields();
+        
+        for(FormField field : list) {
+            System.out.println(field.getQuestion());
+        }
+        
+        
     }
 
     /**
@@ -57,8 +70,17 @@ public class FormDAOImplTest extends AbstractTransactionalJUnit4SpringContextTes
                 
         form.addField(field1);
         
+        FormField field2 = new FormField();
+        field2.setQuestion("Wykształcenie");
+        field2.setDescription("proszę nazwę uczelni");
+        field2.setLp(2);
+        field2.setRequired(true);
+        field2.setFieldType(FieldType.TextField);
+                
+        form.addField(field2);
+        
         formDAO.save(form);
-        formFieldDAO.save(field1);
+        //formFieldDAO.save(field1);
         
     }
     

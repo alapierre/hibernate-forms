@@ -41,7 +41,7 @@ public class PersonDAOImplTest extends AbstractTransactionalJUnit4SpringContextT
 
         Person p = new Person();
         
-        p.setName("imię");
+        p.setName("kaksksasajksajksajksajk");
 
         Message message = new Message();
         message.setContent("treść wiadomości");

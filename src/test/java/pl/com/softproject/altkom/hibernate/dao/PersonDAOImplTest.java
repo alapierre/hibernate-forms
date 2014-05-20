@@ -3,6 +3,7 @@
  */
 package pl.com.softproject.altkom.hibernate.dao;
 
+import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,23 @@ public class PersonDAOImplTest extends AbstractTransactionalJUnit4SpringContextT
     @Autowired
     PersonDAO personDAO;
 
+    @Test
+    public void testFindByCriteria() {
+        
+//        Person test = new Person();
+//        test.setName("Adrian");
+//        
+//        personDAO.save(test);
+        
+        Person p = new Person();
+        p.setName("adrian");
+        
+        List<Person> res = personDAO.findByExample(p);
+        
+        System.out.println(res);
+        
+    }
+    
     @Test
     public void testSaveWithAddress() {
         

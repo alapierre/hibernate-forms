@@ -4,6 +4,7 @@
 
 package pl.com.softproject.altkom.hibernate.dao;
 
+import java.util.List;
 import pl.com.softproject.altkom.hibernate.model.Person;
 
 /**
@@ -15,5 +16,7 @@ public interface PersonDAO {
     Person load(Long id);
 
     void save(Person person);
+
+    List<Person> findByExample(Person example);
     
 }

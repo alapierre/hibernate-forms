@@ -5,6 +5,8 @@
  */
 package pl.com.softproject.altkom.hibernate.dao;
 
+import java.util.List;
+import org.hibernate.criterion.Example;
 import org.springframework.stereotype.Repository;
 import pl.com.softproject.altkom.hibernate.model.Person;
 
@@ -15,6 +17,15 @@ import pl.com.softproject.altkom.hibernate.model.Person;
 @Repository
 public class PersonDAOImpl extends GenericDAOHibernateImpl<Person, Long> implements PersonDAO {
 
-    
+    @Override
+    public List<Person> findByExample(Person example) {
+        return getSession().createCriteria(Person.class)
+                .add(Example.create(example)
+                        .enableLike()
+                        .excludeZeroes()
+                        .ignoreCase()
+                )
+                .list();
+    }
     
 }

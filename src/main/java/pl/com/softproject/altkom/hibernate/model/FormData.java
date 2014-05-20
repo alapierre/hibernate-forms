@@ -11,6 +11,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,6 +22,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @SuppressWarnings("PersistenceUnitPresent")
+@NamedQuery(name = "formData.findByPersonId", query = "select f from FormData as f  where f.person.id = :personId")
 public class FormData extends BaseEntity {
     
     @ManyToOne

@@ -35,7 +35,7 @@ public class GenericDAOHibernateImpl<T, PK extends Serializable> implements Gene
                             .getGenericSuperclass()).getActualTypeArguments()[1];;
     }
     
-    private Session getSession() {
+    protected Session getSession() {
         return sessionFactory.getCurrentSession();
     }
     

@@ -77,9 +77,4 @@ public class Person implements Serializable {
     public void setTeam(Team team) {
         this.team = team;
     }
- 
-    
-    
-    
-    
 }

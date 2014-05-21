@@ -15,8 +15,35 @@
     <body>
         <h1>${form.title}</h1>
         
-        <c:forEach items="${form.fields}" var="field">
-            ${field.description}
-        </c:forEach>
+        <c:url value="/saveFormDate.htm" var="saveURL" />
+        
+        <form method="POST" action="${saveURL}">
+        
+            <label for="person.name">Imię i nazwisko</label>
+            <input type="text" name="person.name" id="person.name"/>
+            <br/>
+            <label for="person.address.street">Ulica</label>
+            <input type="text" name="person.address.street" id="person.address.street"/>
+            <br/>
+            <label for="person.address.citi">Miasto</label>
+            <input type="text" name="person.address.citi" id="person.address.citi"/>
+            <br/>
+            <label for="person.address.postcode">Kod pocztowy</label>
+            <input type="text" name="person.address.postcode" id="person.address.postcode"/>
+            <br/>
+            
+            <c:forEach items="${form.fields}" var="field">
+                <label for="field_${field.formField.id}">${field.lp}. ${field.formField.question}</label>
+                <input type="text" id="field_${field.formField.id}" name="field_${field.formField.id}">
+                 <br/>${field.description} 
+                 <br/>
+            </c:forEach>
+            
+                 
+                 <input type="submit" value="Zapisz" name="submit">
+                     
+                 
+             
+        </form>
     </body>
 </html>

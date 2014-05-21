@@ -16,12 +16,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import org.hibernate.envers.Audited;
 
 /**
  *
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
 @Entity
+@Audited
 @SuppressWarnings("PersistenceUnitPresent")
 public class Person implements Serializable {
     

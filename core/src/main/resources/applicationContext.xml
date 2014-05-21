@@ -21,7 +21,7 @@
     <context:annotation-config/>
 <!--    <context:component-scan base-package="pl.com.softproject.altkom.hibernate.dao.springdata"/>-->
 	
-    <jpa:repositories base-package="pl.com.softproject.altkom.hibernate.dao.springdata"/>    
+    <jpa:repositories base-package="pl.com.softproject.altkom.hibernate.dao.springdata" factory-class="org.springframework.data.envers.repository.support.EnversRevisionRepositoryFactoryBean"/>    
         
     <!-- Data source -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">

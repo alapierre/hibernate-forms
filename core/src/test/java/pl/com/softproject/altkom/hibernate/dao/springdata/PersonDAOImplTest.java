@@ -6,6 +6,8 @@ package pl.com.softproject.altkom.hibernate.dao.springdata;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.history.Revision;
+import org.springframework.data.history.Revisions;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -25,6 +27,34 @@ public class PersonDAOImplTest extends AbstractTransactionalJUnit4SpringContextT
     
     @Test
     public void testSave() {
+        createPerson();
+    }
+
+    @Test
+    public void testAudit() {
+        
+        //Person p = createPerson();
+        
+        Person p = personDAO.findOne(3L);
+        
+        p.setName("Adrian 22");
+        
+        personDAO.save(p);
+        
+    }
+    
+    @Test
+    public void testAutitLog() {
+        
+        Revisions<Integer, Person> revs = personDAO.findRevisions(3L);
+        
+        for(Revision<Integer, Person> rev : revs) {
+            System.out.println(rev);
+        }
+        
+    }
+    
+    private Person createPerson() {
         Person p = new Person();
         p.setName("Adrian");
         
@@ -36,7 +66,10 @@ public class PersonDAOImplTest extends AbstractTransactionalJUnit4SpringContextT
         p.setAddress(address);
         
         personDAO.save(p);
+        return p;
     }
+    
+    
     
     @Test
     public void testLoad() {

@@ -6,9 +6,12 @@
 
 package pl.com.softproject.altkom.hibernate.forms.web.controller;
 
+import java.util.Enumeration;
+import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import pl.com.softproject.altkom.hibernate.dao.springdata.FormDAO;
@@ -46,6 +49,19 @@ public class FormControler {
         
         return model;
                 
+    }
+    
+    @RequestMapping(value = "/saveFormDate", method = RequestMethod.POST)
+    public String saveFormDate(ServletRequest request) {
+        
+        Enumeration<String> params = request.getParameterNames();
+        
+        while( params.hasMoreElements()) {
+            String param = params.nextElement();
+            System.out.println(param);
+        }
+        
+        return "redirect:/showForms.htm";
     }
     
 }

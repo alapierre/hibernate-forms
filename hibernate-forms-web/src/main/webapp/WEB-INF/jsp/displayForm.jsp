@@ -38,12 +38,7 @@
                  <br/>${field.description} 
                  <br/>
             </c:forEach>
-            
-                 
                  <input type="submit" value="Zapisz" name="submit">
-                     
-                 
-             
         </form>
     </body>
 </html>

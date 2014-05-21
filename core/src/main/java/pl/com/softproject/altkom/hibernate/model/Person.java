@@ -7,6 +7,7 @@ package pl.com.softproject.altkom.hibernate.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Cacheable;
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -24,6 +25,7 @@ import org.hibernate.envers.Audited;
  */
 @Entity
 @Audited
+@Cacheable(true)
 @SuppressWarnings("PersistenceUnitPresent")
 public class Person implements Serializable {
     

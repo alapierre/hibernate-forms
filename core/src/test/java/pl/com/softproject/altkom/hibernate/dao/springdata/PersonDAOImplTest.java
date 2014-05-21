@@ -74,8 +74,14 @@ public class PersonDAOImplTest extends AbstractTransactionalJUnit4SpringContextT
     @Test
     public void testLoad() {
         
-        Person p = personDAO.findOne(1L);
+        final long id = 1L;
+        
+        Person p = personDAO.findOne(id);
         System.out.println(p);
+        
+        p = personDAO.findOne(id);
+        System.out.println(p);
+        
     }
     
     @Test

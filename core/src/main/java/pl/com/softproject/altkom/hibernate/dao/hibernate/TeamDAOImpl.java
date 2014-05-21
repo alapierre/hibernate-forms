@@ -9,7 +9,6 @@ package pl.com.softproject.altkom.hibernate.dao.hibernate;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import pl.com.softproject.altkom.hibernate.dao.TeamDAO;
 import pl.com.softproject.altkom.hibernate.model.Team;
 
 /**

@@ -2,7 +2,7 @@
  * Copyright 2014-05-20 the original author or authors.
  */
 
-package pl.com.softproject.altkom.hibernate.dao;
+package pl.com.softproject.altkom.hibernate.dao.hibernate;
 
 import pl.com.softproject.altkom.hibernate.model.FormFormFieldAssociacion;
 import pl.com.softproject.altkom.hibernate.model.composite.FormFormFieldAssociacionId;

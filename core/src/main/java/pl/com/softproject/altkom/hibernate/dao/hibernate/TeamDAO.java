@@ -2,7 +2,7 @@
  * Copyright 2014-05-19 the original author or authors.
  */
 
-package pl.com.softproject.altkom.hibernate.dao;
+package pl.com.softproject.altkom.hibernate.dao.hibernate;
 
 import pl.com.softproject.altkom.hibernate.model.Team;
 

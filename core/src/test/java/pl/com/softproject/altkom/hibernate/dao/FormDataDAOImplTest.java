@@ -6,6 +6,9 @@
 
 package pl.com.softproject.altkom.hibernate.dao;
 
+import pl.com.softproject.altkom.hibernate.dao.hibernate.PersonDAO;
+import pl.com.softproject.altkom.hibernate.dao.hibernate.FormDAO;
+import pl.com.softproject.altkom.hibernate.dao.hibernate.FormDataDAO;
 import java.util.Date;
 import org.junit.Test;
 import static org.junit.Assert.*;

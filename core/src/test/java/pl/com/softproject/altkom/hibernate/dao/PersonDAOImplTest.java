@@ -3,6 +3,7 @@
  */
 package pl.com.softproject.altkom.hibernate.dao;
 
+import pl.com.softproject.altkom.hibernate.dao.hibernate.PersonDAO;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;

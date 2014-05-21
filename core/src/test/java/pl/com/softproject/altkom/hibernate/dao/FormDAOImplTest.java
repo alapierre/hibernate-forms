@@ -6,6 +6,9 @@
 
 package pl.com.softproject.altkom.hibernate.dao;
 
+import pl.com.softproject.altkom.hibernate.dao.hibernate.FormFieldDAO;
+import pl.com.softproject.altkom.hibernate.dao.hibernate.FormFormFieldAssociacionDAO;
+import pl.com.softproject.altkom.hibernate.dao.hibernate.FormDAO;
 import java.util.Date;
 import java.util.Set;
 import org.junit.Test;

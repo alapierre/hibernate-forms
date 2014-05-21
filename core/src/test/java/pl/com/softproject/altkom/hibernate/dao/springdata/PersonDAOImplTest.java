@@ -45,4 +45,12 @@ public class PersonDAOImplTest extends AbstractTransactionalJUnit4SpringContextT
         System.out.println(p);
     }
     
+    @Test
+    public void testFindByName() {
+        
+        Iterable<Person> res = personDAO.findByNameLikeIgnoreCase("adrian");
+        
+        System.out.println(res);
+        
+    }
 }

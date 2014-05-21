@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
-import pl.com.softproject.altkom.hibernate.dao.PersonDAO;
+import pl.com.softproject.altkom.hibernate.dao.hibernate.PersonDAO;
 import pl.com.softproject.altkom.hibernate.model.Person;
 
 /**

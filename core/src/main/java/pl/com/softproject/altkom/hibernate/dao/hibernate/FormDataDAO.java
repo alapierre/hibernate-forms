@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package pl.com.softproject.altkom.hibernate.dao;
+package pl.com.softproject.altkom.hibernate.dao.hibernate;
 
 import pl.com.softproject.altkom.hibernate.model.FormData;
 

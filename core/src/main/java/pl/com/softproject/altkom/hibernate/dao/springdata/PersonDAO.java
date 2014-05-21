@@ -13,4 +13,6 @@ import pl.com.softproject.altkom.hibernate.model.Person;
  */
 public interface PersonDAO extends CrudRepository<Person, Long>{
     
+    public Iterable<Person> findByNameLikeIgnoreCase(String name);
+    
 }

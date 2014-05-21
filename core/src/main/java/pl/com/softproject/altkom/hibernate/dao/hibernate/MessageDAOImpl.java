@@ -7,7 +7,6 @@
 package pl.com.softproject.altkom.hibernate.dao.hibernate;
 
 import org.springframework.stereotype.Repository;
-import pl.com.softproject.altkom.hibernate.dao.MessageDAO;
 import pl.com.softproject.altkom.hibernate.model.Message;
 
 /**

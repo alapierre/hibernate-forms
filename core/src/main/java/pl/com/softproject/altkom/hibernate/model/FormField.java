@@ -27,6 +27,33 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @SuppressWarnings("PersistenceUnitPresent")
 public class FormField extends BaseEntity{
+
+    public FormField() {
+    }
+
+    public FormField(Long id) {
+        super(id);
+    }
+    
+    public FormField(String question, boolean required) {
+        this.question = question;
+        this.required = required;
+        fieldType = FieldType.TextField;
+    }
+
+    public FormField(String question, boolean required, Long id) {
+        super(id);
+        this.question = question;
+        this.required = required;
+    }
+
+    public FormField(FieldType fieldType, String question, boolean required) {
+        this.fieldType = fieldType;
+        this.question = question;
+        this.required = required;
+    }
+    
+    
     
     @Enumerated(EnumType.STRING)
     private FieldType fieldType;

@@ -5,7 +5,6 @@
 package pl.com.softproject.altkom.hibernate.dao.hibernate;
 
 import org.springframework.stereotype.Repository;
-import pl.com.softproject.altkom.hibernate.dao.FormFormFieldAssociacionDAO;
 import pl.com.softproject.altkom.hibernate.model.FormFormFieldAssociacion;
 import pl.com.softproject.altkom.hibernate.model.composite.FormFormFieldAssociacionId;
 

@@ -8,7 +8,6 @@ package pl.com.softproject.altkom.hibernate.dao.hibernate;
 import java.util.List;
 import org.hibernate.criterion.Example;
 import org.springframework.stereotype.Repository;
-import pl.com.softproject.altkom.hibernate.dao.PersonDAO;
 import pl.com.softproject.altkom.hibernate.model.Person;
 
 /**

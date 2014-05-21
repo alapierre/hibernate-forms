@@ -44,6 +44,7 @@ public class Form extends BaseEntity {
 //    private Set<FormField> fields = new LinkedHashSet<>();
 
     @OneToMany(mappedBy="id.form")
+    @OrderBy("lp")
     private Set<FormFormFieldAssociacion> fields = new LinkedHashSet<>();;
     
     public void addField(FormFormFieldAssociacion formField) {

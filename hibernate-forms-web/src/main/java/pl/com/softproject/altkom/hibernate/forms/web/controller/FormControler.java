@@ -91,7 +91,9 @@ public class FormControler {
         
         while( params.hasMoreElements()) {
             String param = params.nextElement();
-            System.out.println(param);
+            
+            if(logger.isDebugEnabled())
+                logger.debug(param);
             
             if(param.startsWith("field_")) {
                 long fieldId = Long.parseLong(param.replaceFirst("field_", ""));
@@ -102,7 +104,6 @@ public class FormControler {
                 value.setFormField(new FormField(fieldId));
                 formData.getAnswers().add(value);
             }
-            
         }
         
         formDataDAO.save(formData);

@@ -4,6 +4,7 @@
     Author     : Adrian Lapierre <adrian@softproject.com.pl>
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
@@ -22,11 +23,15 @@
     <body>
         
          <%@include file="../jspf/menu.jspf" %>
-        
+        <br/><br/>
         <h1>Dodawanie nowej Ankiety</h1>
         
-        <form:form >
+        <c:url value="/admin/saveForm.htm" var="url" />
+        
+        <form:form commandName="form" action="${url}" method="POST">
+            <form:input required="true" path="title"/><form:errors path="title"/>
             
+            <form:button>Zapisz</form:button>
         </form:form>
         
     </body>

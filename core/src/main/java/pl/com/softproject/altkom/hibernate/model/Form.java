@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -33,7 +35,8 @@ public class Form extends BaseEntity {
     }
     
     
-    
+    @NotEmpty
+    @Size(max = 255)
     private String title;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;

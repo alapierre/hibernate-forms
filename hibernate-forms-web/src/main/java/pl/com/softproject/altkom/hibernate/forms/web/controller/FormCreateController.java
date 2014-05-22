@@ -68,10 +68,7 @@ public class FormCreateController {
         
         final FormFormFieldAssociacion formFormFieldAssociacion = new FormFormFieldAssociacion();
         formFormFieldAssociacion.setForm(form);
-        
         model.addObject("formFormFieldAssociacion", formFormFieldAssociacion);
-        
-        
         
         model.addObject("formFields", formFieldDAO.findAll());
         

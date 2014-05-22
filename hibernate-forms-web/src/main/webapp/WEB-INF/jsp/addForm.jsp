@@ -30,7 +30,7 @@
         
         <form:form commandName="form" action="${url}" method="POST">
             <form:input required="true" path="title"/><form:errors path="title"/>
-            
+            <br/>
             <form:button>Zapisz</form:button>
         </form:form>
         

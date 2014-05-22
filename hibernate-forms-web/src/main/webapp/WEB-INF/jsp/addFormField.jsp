@@ -23,8 +23,6 @@
         <br/><br/>
         <h1>Dodaj pole do ankiety!</h1>
         
-        
-        
         <h2>${form.title}</h2>
         
         <ul>

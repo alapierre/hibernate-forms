@@ -16,8 +16,8 @@ import pl.com.softproject.altkom.hibernate.model.FormField;
  */
 public interface FormFieldDAO extends CrudRepository<FormField, Long>{
     
-    @Query(name = "select field from FormField as field where field.id "
-            + "not in (select a.id.formField.id from FormFormFieldAssociacion as a where a.id.form.id = ?)")
+    @Query(value = "select f from FormField f where f.id "
+            + "not in (select a.id.formField.id from FormFormFieldAssociacion a where a.id.form.id = ?)")
     public Iterable<FormField> findNotInForm(long formId);
     
 }

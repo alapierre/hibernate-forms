@@ -135,6 +135,8 @@ public class FormDAOTest extends AbstractTransactionalJUnit4SpringContextTests  
     @Test
     public void testFormFields() {
         Iterable<FormField> res = formFieldDAO.findNotInForm(1L);
+        
+        System.out.println(res);
     }
     
 }

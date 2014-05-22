@@ -70,7 +70,7 @@ public class FormCreateController {
         formFormFieldAssociacion.setForm(form);
         model.addObject("formFormFieldAssociacion", formFormFieldAssociacion);
         
-        model.addObject("formFields", formFieldDAO.findAll());
+        model.addObject("formFields", formFieldDAO.findNotInForm(formId));
         
         return model;
     }

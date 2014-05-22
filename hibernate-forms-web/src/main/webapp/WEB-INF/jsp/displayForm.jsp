@@ -19,6 +19,9 @@
         
         <form method="POST" action="${saveURL}">
         
+            <input type="hidden" name="form_id" value="${form.id}"/>
+                
+            
             <label for="person.name">Imię i nazwisko</label>
             <input type="text" name="person.name" id="person.name"/>
             <br/>

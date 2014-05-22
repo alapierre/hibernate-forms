@@ -16,6 +16,15 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Embeddable
 public class Address implements Serializable {
+
+    public Address() {
+    }
+    
+    public Address(String citi, String street, String postCode) {
+        this.citi = citi;
+        this.street = street;
+        this.postCode = postCode;
+    }
     
     @NotEmpty
     @Size(max = 512)

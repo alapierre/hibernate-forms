@@ -21,7 +21,9 @@
     <context:annotation-config/>
 <!--    <context:component-scan base-package="pl.com.softproject.altkom.hibernate.dao.springdata"/>-->
 	
-    <jpa:repositories base-package="pl.com.softproject.altkom.hibernate.dao.springdata"/>    
+    <jpa:repositories 
+        factory-class="org.springframework.data.envers.repository.support.EnversRevisionRepositoryFactoryBean"
+        base-package="pl.com.softproject.altkom.hibernate.dao.springdata"/>    
         
     <!-- Data source -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -44,7 +46,7 @@
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="database" value="${jpa.db.type}" />
-                <property name="generateDdl" value="false" />
+                <property name="generateDdl" value="true" />
                 <property name="showSql" value="true"/>
             </bean>
         </property>

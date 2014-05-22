@@ -14,12 +14,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import org.hibernate.envers.Audited;
 
 /**
  *
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
 @Entity
+@Audited
 public class Message implements Serializable {
     
     @Id

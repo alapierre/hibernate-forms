@@ -6,6 +6,8 @@ package pl.com.softproject.altkom.hibernate.dao.springdata;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.history.Revision;
+import org.springframework.data.history.Revisions;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -39,6 +41,13 @@ public class PersonDAOImplTest extends AbstractTransactionalJUnit4SpringContextT
     }
     
     @Test
+    public void testUpdate() {
+        Person p = personDAO.findOne(4L);
+        p.setName("nowe imie");
+        personDAO.save(p);
+    }
+    
+    @Test
     public void testLoad() {
         
         Person p = personDAO.findOne(1L);
@@ -51,6 +60,16 @@ public class PersonDAOImplTest extends AbstractTransactionalJUnit4SpringContextT
         Iterable<Person> res = personDAO.findByNameLikeIgnoreCase("adrian");
         
         System.out.println(res);
+        
+    }
+    
+    @Test
+    public void testAudit() {
+        Revisions<Integer, Person> revs = personDAO.findRevisions(4L);
+        
+        for(Revision<Integer, Person> rev :revs) {
+            System.out.println(rev);
+        }
         
     }
 }

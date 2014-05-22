@@ -12,12 +12,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import org.hibernate.envers.Audited;
 
 /**
  *
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
 @Entity
+@Audited
 public class Team implements Serializable {
 
     public Team() {

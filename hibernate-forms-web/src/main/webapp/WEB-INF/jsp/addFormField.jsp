@@ -32,7 +32,18 @@
         </ul>
             
         <form:form commandName="formFormFieldAssociacion" method="POST" action="saveFormField.htm">
-            <form:hidden path="form.id" />
+            
+            <c:choose>
+                <c:when test="${empty form.id}">
+                    <label for="form.id">Ankieta</label>
+                    <form:select path="form.id" items="${forms}" itemLabel="title" itemValue="id"></form:select>
+                    <br/>
+                </c:when>
+                <c:otherwise>
+                    <form:hidden path="form.id" />
+                </c:otherwise>
+            </c:choose>
+            
             <label for="formField.id">Pytanie</label>
             <form:select path="formField.id" items="${formFields}" itemLabel="question" itemValue="id"/>
             <br/>

@@ -59,18 +59,30 @@ public class FormCreateController {
     }
     
     @RequestMapping("/addFormField")
-    public ModelAndView prepareHTMLFormField(@RequestParam("form_id") Long formId) {
+    public ModelAndView prepareHTMLFormField(@RequestParam(value = "form_id", required = false) Long formId) {
         
         ModelAndView model = new ModelAndView("addFormField");
         
-        Form form = formDAO.findOne(formId);
-        model.addObject("form", form);
+        Form form;
+        
+        if(formId != null) {
+            form = formDAO.findOne(formId);
+            model.addObject("form", form);
+        } else {
+            form = new Form();
+            model.addObject("forms", formDAO.findAll());
+        }
         
         final FormFormFieldAssociacion formFormFieldAssociacion = new FormFormFieldAssociacion();
         formFormFieldAssociacion.setForm(form);
         model.addObject("formFormFieldAssociacion", formFormFieldAssociacion);
         
-        model.addObject("formFields", formFieldDAO.findNotInForm(formId));
+        if(formId != null) {
+            model.addObject("formFields", formFieldDAO.findNotInForm(formId));
+        } else {
+            model.addObject("formFields", formFieldDAO.findAll());
+        }
+        
         
         return model;
     }
